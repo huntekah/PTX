@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+<pre>
+Narzędzie Thrax
+
+Termin: 31.12.17
+
+Rozwiązanie musi być uzyskane za pomocą operacji na automatach/przetwornikach
+skończonych.
+
+1. (1 pkt) Parser, który będzie rozpoznawał komendy wydawane robotowi.
+Komendy można formułować w różny sposób ("do przodu", "zechciej proszę,
+pójść jeszcze trochę dalej, dziekuję"). Co najmniej 5 komend.
+
+Rozwinięcia:
+ - parser - dopasowując - może zignorować część słów wejściowych,
+   wygrywa komenda, którą dopasował najpełniej (po usunięciu najmniejszej
+   liczby słów) (+ 1 pkt)
+ - parser obsługuje słowa nie należące do słownika (+ 1 pkt)
+ - komendy mogą zawierać argumenty, np. idź do przodu pięć metrów, parser
+   rozpoznaje komendę i wskazuje argument, np. GO_AHEAD 5m
+ - wykorzystanie w rozwiązaniu interfejsu w C++ (+ 1 pkt)
+ - ...
+
+2. (1pkt) Korektor niechlujnej polszczyzny: błędy ortograficzne, klawiaturowe,
+ brak wielkiej litery, brak znaków diakrytycznych. Wygrywa wyraz, do którego
+ najtańszym kosztem można przekształcić wejściowy ciąg znaków. Program korzysta
+ ze słownika. Wymagania minimalne: 1 rodzaj błędów, słownik 100 000 słów.
+
+Rozwinięcia:
+ - cały słownik (2-6 mln słów) (+ 1 pkt)
+ - uwzględnienie 3 rodzajów błędów (+ 1 pkt)
+ - uwzględnienie częstości występowania wyrazów w języku polskim (+ 1 pkt)
+ - ...
+</pre>
+</body>
+<html>

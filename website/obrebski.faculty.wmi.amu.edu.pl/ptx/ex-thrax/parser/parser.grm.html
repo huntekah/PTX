@@ -1,0 +1,24 @@
+
+s = SymbolTable['dict.tsv'];
+
+eps = "".s ;
+
+dir = "w".s ("prawo".s (eps : "RIGHT".s) | "lewo".s (eps : "LEFT".s)) ;
+
+go_v = "idź".s | "iść".s | "poszedł".s | "szedł".s ;
+turn_v = "skręć".s | "skręcić".s | "skręcił".s ;
+
+extra = "proszę".s | "masz".s | "ci".s | "chcę".s | "żebyś".s | "rozkazuję".s ;
+meaningful = go_v | turn_v | "w".s | "prawo".s | "lewo".s ;
+out = "GO".s | "TURN".s | "RIGHT".s |"LEFT".s ;
+
+r1 = go_v (eps : "GO".s) ;
+r2 = (turn_v|go_v)? dir (turn_v|go_v)? (eps : "TURN".s);
+
+export clean = (meaningful | (extra : eps))* ;
+
+export extract = ((meaningful : eps) | out)* ;
+
+export mainparse = (r1|r2) ;
+
+export parse = clean @ mainparse @ extract ;

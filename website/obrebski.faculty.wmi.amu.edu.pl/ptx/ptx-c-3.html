@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=iso-8859-2">
+  </head>
+
+  <body lang=PL>
+
+    <h1 id="cw3">Przetwarzanie tekstu <br> ćwiczenia 3</h1>
+    <h2>temat: Perl</h2>
+    
+    <h3>Zadania</h3>
+    <ol>
+
+      <li>Napisać dowolny program w perlu. Uruchomić:
+	<ul>
+	  <li> przez jawne wywołanie interpretera perla (perl ...)
+	  <li> jako plik wykonywalny
+	  <li> z wykorzystaniem parametru <b><tt>-e</tt></b>/<b><tt>-ne</tt></b>/<b><tt>-pe</tt></b>
+	</ul>	
+
+      <li> Napisać program, który zlicza linie pliku wejściowego.
+	Uruchomić na trzy sposoby: patrz pkt. 1.
+
+      <li> Napisać program, który działa jak grep: wybiera z pliku
+	wejściowego linie paujące do wzorca. Wzorzec jest parametrem programu.
+	(paramatry programu przechowuje zmienna @ARGV, patrz 'man perlvar')
+
+      <li> Napisać procesor obsługujący dyrektywy
+	
+	<br><br><div>#define <i>napis1</i> <i>napis2</i></div><br>
+
+	mające takie działanie jak w przypadku preprocesora języka C:
+	wszystkie wystąpienia napisu napis1 w tekście następującym po
+	dyrektywie powinny być zastąpione przez napis2. Dyrektyw
+	takich może się pojawić wiele. Dyrektywy nie są przepisywane
+	do pliku wyjściowego.
+
+	<h5>Przykład:</h5>
+	
+	<table>
+	  <tr><th>wejście:</th>
+	  <tr><td></td><td>
+	      <pre>
+		F=PI*R*R
+		#define PI 3.14
+		F=PI*R*R
+		#define R 100
+		F=PI*R*R
+	      </pre>
+	    </td>
+	  <tr><th>wyjście:</th>
+	  <tr><td></td><td>
+	      <pre>
+		F=PI*R*R
+		F=3.14*R*R
+		F=3.14*100*100
+	      </pre>
+	    </td>
+	</table>
+
+
+      <li>Napisać program, który zlicza liczbę wystąpień słów w tekście.
+
+	<h5>Przykład:</h5>
+	
+	<table>
+	  <tr><th>wejście:</th>
+	  <tr><td></td><td>
+	      <pre>
+		Ala ma kota. I kota ma Jan.
+	      </pre>
+	    </td>
+	  <tr><th>wyjście:</th>
+	  <tr><td></td><td>
+	      <pre>
+		Ala 1
+		ma 2
+		kota 2
+		I 1
+		Jan 1
+	      </pre>
+	    </td>
+	</table>
+
+    </ol>
+    
+
+    <h3>Wskazówki</h3>
+    <ol>
+      <li> Żeby podzielić linię na wyrazy, użyć funkcji
+	<br><br><div><b><tt>split(</tt></b><i>SEP</i><b><tt>,</tt></b><i>NAPIS</i><b><tt>)</tt></b></div><br>
+	Funkcja ta dzieli <i>NAPIS</i> na fragmenty.
+	<i>SEP</i> jest wyrażeniem regularnym (ujętym w ukośniki) definiującym 
+	separator, np.:
+	<pre>
+	  @slowa=split(/\W+/,$linia);
+	</pre>
+
+      <li> Informacje nt. predefiniowanych funkcji Perla
+	<br><br><div><b><tt>man perlfunc</tt></b></div><br>
+
+      <li> Informacje nt. predefiniowanych zmiennych Perla
+	<br><br><div><b><tt>man perlvar</tt></b></div><br>
+	
+      <li> Informacje nt. innych składników języka:
+	<br><br><div><b><tt>man perl</tt></b></div><br>
+
+    </ol>
+
+</body>
+</html>

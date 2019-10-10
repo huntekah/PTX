@@ -1,0 +1,26 @@
+[WERSJA WSTĘPNA, MOŻE ULEC NIEWIELKIM ZMIANOM DO 21.10]
+
+Elementy zaliczenia:
+- kolokwium
+- wykonanie trzech zadań, po jednym z każdego bloku (1-perl, 2-automaty, 3-lex/yacc)
+- przedstawienie rozwiązań zadań na rozmowie zaliczeniowej
+- praca na zajęciach
+
+za kolokwium można uzyskać 20 pktów
+za każde z zadań: od 10 do 40 pktow
+
+Warunek zaliczenia ćwiczeń:
+- kolokwium zaliczone na ponad 10 punktów
+- suma punktów z kolokwium i zadań - ponad 25
+
+Ocena końcowa:
+- (min(35,suma punktów z zadań) + liczba punktów z kolokwium)/10 zaokrąglone w zwykły sposób
+
+Zwolnienie z egzaminu:
+- uzyskanie oceny bardzo dobrej z ćwiczeń
+- brak istotnych zastrzeżeń do pracy na zajęciach
+- uzyskanie co najmniej 10 punktów z każdego z trzech zadań
+- uzyskanie w sumie co najmniej 70 punktów z zadań
+
+
+Możliwe jest ustalenie w indywidualnych przypadkach innych warunków zaliczenia/zwolnienia z egzaminu.

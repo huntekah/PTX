@@ -1,0 +1,203 @@
+<html>
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=iso-8859-2">
+  </head>
+  
+  <body lang=PL>
+  
+    <h1 id="cw4">Przetwarzanie tekstu <br> ćwiczenia 4-5</h1>
+    <h2>temat: Perl + narzędzia systemowe</h2>
+
+    <h3>Zadania</h3>
+    <ol>
+      
+      <li>(1 pkt) Zbudować program rozpoznający w jakim języku
+	    napisany jest tekst.
+	
+	<ul>
+
+	  <li>Metoda: Na podstawie korpusu tekstów dla każdego języka
+	    budujemy jego statystyczny model ortograficzny.
+	    Przez model ortograficzny rozumiemy informację
+	    na temat częstości występowania różnych
+	    sekwencji n-literowych (tzw. n-gramy) w słowach
+	    danego języka.<br>
+
+	    Mając modele ortograficzne dla języków L1, L2, L3
+	    oraz pewien tekst możemy ustalić stopień zgodności
+	    z poszczególnymi modelami np. w nastepujacy sposob:
+	    dla wszyskich kolejnych n-gramów z badanego tekstu
+	    sumujemy oddzielnie częstości przypisane tym n-gramom
+	    przez modele L1, L2, L3. Otrzymaną wielkość możemy
+	    jakoś znormalizować tak, by wynik nie zależał od wielkości
+	    badanego tekstu, a tylko od jego zgodności z poszczególnymi
+	    modelami. Im wyższy wynik tym model bardziej zgodny
+	    z tekstem.
+	    
+	  <li> Zadania szczegółowe:
+	    
+	    <ol>
+	      
+	      <li>Napisać program budujący model ortograficzny języka na
+		podstawie tekstu. Długość n-gramów jest parametrem programu.
+		Model powinien być zapisywany do pliku. Wystarczy uwzglednic
+		n=2,3,4.
+		
+	      <li> Napisać program, który na podstawie dostępnych modeli
+		(np. wszystkich, które znajdzie w bieżącym katalogu)
+		wyliczy 'odległość' zadanego tekstu od każdego z tych
+		modeli.
+	    </ol>
+
+	  <li> Zakładamy, że tekst do analizy może być krótki 
+	    i może nie zawierać znaków charakterystycznych dla
+	    danych języków.
+	    
+	  <li> Informacja, czy dana sekwencja znaków rozpoczyna/kończy
+	    słowo powinna być też brana pod uwagę, np. w taki sposób,
+	    że dla słowa 'kajak' rozważamy następujące 3-gramy
+
+	    <pre>
+	      0 0 k
+	      0 k a
+	      k a j
+	      a j a
+	      j a k
+	      a k 0
+	      k 0 0
+	    </pre>
+	    0 to umowny symbol oznaczający pozycję poza słowem.
+	    
+	</ul>
+
+      <li> (1-2 pkty) Napisać procesor tekstu obsługujący  makrodefinicje 
+	z argumentami (patrz np. dyrektywa #define preprocesora języka C) oraz dyrektywy
+	<div><br>#include <i>nazwapliku</i></div><br> powodujące włączenie zawartości pliku o podanej nazwie (dyrektywy te mogą być
+	zagnieżdżone, tzn. w pliku włączanym w wyniku obsłużenia dyrektywy #include może znajdować się kolejna dyrektywa #include).
+	<ul>
+	  <li> Parametrem procesora powinien być parametr określający, czy zastosowanie makrodefinicji ma być rekurencyjne (czy tekst będący
+	    wynikiem zastosowania makrodefinicji ma być podany ponownie na wejście procesora, czy nie).
+	    
+	  <li> Makra z argumentem to np.
+	    
+	    <pre>
+
+	      #define DUP(X) X X
+	      #define MAX(A,B) (if (A)>(B) then (A) else (B) end)	      
+
+	    </pre>
+	    Przykładowo, wynikiem przetworzenia pliku
+	    <pre>
+
+	      #define DUP(X) X X
+	      #define MAX(A,B) (if (A)>(B) then (A) else (B) end)	      
+	      DUP(33)
+	      MAX(1,a+b)
+
+	    </pre>
+	    powinno być
+	    <pre>
+
+	      33 33
+	      (if (1)>(a+b) then (1) else (a+b) end)
+
+	    </pre>
+	    
+	  <li> za 1 pkt: obsługa makrodefinicji z jednym
+	    argumentem i niezagnieżdżonych dyrektyw #include.
+	  <li> za 2 pkty: obsługa makrodefinicji z wieloma argumentami
+	    i zagnieżdżonych dyrektyw #include
+
+	</ul>
+	
+      <li> (2 pkty) Program ekstrahujący "ładny" tekst w języku polskim ze strony internetowej.
+	
+	 <ul>
+	  <li> Przez "ładny" tekst rozumiemy kompletne zdania w języku polskim bez żadnych dodatkowych elementów (linki, znaczniki
+	  formatujące, etc.), w ustalonym jednolitym kodowaniu, podzielony na zdania (1 zdanie w 1 linii).
+	  <li> Struktura wejściowej strony internetowej nie jest w żaden sposób określona, program powinien radzić sobie z dowolnymi stronami.
+	  <li> Nie jest wymagagane, żeby udało się odzyskać 100% zdań z każdej strony.
+	  <li> Należy przetestować na stronach o różnych formatach pochodzących z różnych źródeł.
+	</ul>
+
+
+      <!-- <li> (3pkty) (rozszerzenie zad. poprzedniego) Program, który będzie "wypompowywał" z internetu -->
+      <!-- 	"ładny" tekst w języku polskim. -->
+	
+      <!-- 	<ul> -->
+      <!-- 	  <li> Program powinien przegladać strony internetowe w -->
+      <!-- 	  poszukiwaniu "ładnego" tekstu, ekstrahować go ze stron i -->
+      <!-- 	  składować. -->
+
+      <!-- 	  <li> Przez "ładny" tekst rozumiemy kompletne zdania w -->
+      <!-- 	  języku polskim bez żadnych dodatkowych elementów (linki, -->
+      <!-- 	  znaczniki formatujące, etc.), w ustalonym jednolitym -->
+      <!-- 	  kodowaniu. -->
+
+      <!-- 	  <li> Musi być możliwość wypompowania dowolnie dużej ilości -->
+      <!-- 	  tekstu. -->
+
+      <!-- 	  <li> Wypompowany tekst powinien być w formacie: 1 zdanie w 1 linii. -->
+
+      <!-- 	  <li> Maksymalna ocena tylko za program, który nadaje się do użytku. -->
+
+      <!-- 	</ul> -->
+
+      <li> (2pkty) Program, który wypompowuje "ładny" tekst z Wikipedii na określony temat.
+	<ul>
+	  <li> Możliwe tematy to kategorie wikipedii.
+	  <li> Program umożliwia przeglądanie drzewa kategorii.
+	  <li> Wypompowuje tekst ze stron należących do zadanej kategorii i wszystkich jej podkategorii.
+	</ul>
+
+      <li> (2 pkty) Zbudować korektor ortografii działający w oparciu o program <b><tt>cor</tt></b> lub <b><tt>kor</tt></b> z pakietu UAM Text Tools (UTT).
+
+	<ul>
+
+	  <li> Pakiet UTT wraz z dokumentacją wymienionych programów jest dostępny na stronie <b>utt.amu.edu.pl</b>
+	    (Uwaga: aktualny kod UTT proszę pobrać ze strony utt.wmi.amu.edu.pl)
+ 
+	  <li> Program powinien oferować prosty interfejs tekstowy pozwalający wskazać jedną z podpowiedzi.
+
+	  <li> Powinna istnieć też możliwość uruchomienia nieinteraktywnego (wybiera zawsze podpowiedź nr 1)
+	    
+	</ul>
+
+	
+    </ol>
+    
+    <b><p>
+    Indywidualnie można (do czego zachęcam) zgłaszać propozycje
+    własnych tematów lub rozszerzeń tematów zaproponowanych
+    wyżej. Wtedy liczbę punktów ustalimy odpowiednio do trudności i
+    pracochłonności zadania (maksymalnie 4 punkty).
+</b>
+
+<p>
+
+    Rozwiązanie powinno zawierać:
+    <ul>
+      <li> kod źródłowy programu
+      <li> instrukcję obsługi (może stanowić część demo)
+      <li> skrypt wykonywalny <b><tt>demo</tt></b> (w dowolnym języku skryptowym, np. bash, Perl, ...)
+	przedstawiający autora, treść zadania i demonstrujący działanie programu.
+      <li> wszystkie pliki należy spakować w katalogu o nazwie PTX1_NZAWISKO_IMIE (bez polskich znaków), (użyć tar+gzip)
+      <li> sekwencja komend po Linuxem
+	<pre>
+	  $ tar xzvf PTX1_NZAWISKO_IMIE.tgz
+	  $ ./demo
+	</pre>
+	powinna uruchomić demo
+      <li> .. i wysłać pod adresem obrebski@amu.edu.pl; tytuł maila: PTX1_NAZWISKO_IMIE
+      <li> termin: 29.11
+      <li> zadania dostarczone po terminie: 
+	<ul>
+	  <li> tydzień spóźnienia = -20%
+	  <li> dwa tygodnie spóźnienia = -40%
+	  <li> trzy tygodnie lub więcej spóźnienia = -50%
+	</ul>
+    </ul>
+    
+  </body>
+
+</html>

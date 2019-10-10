@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=iso-8859-2">
+  </head>
+  
+  <body lang=PL>
+    
+    <h1 id="cw2">Przetwarzanie tekstu <br> ćwiczenia 2</h1>
+    <h2>temat: standardowe narzędzia unixowe</h2>
+    
+    <h3>Zadania</h3>
+    
+    <ol>
+      
+      <li> Policzyć słowa zakończone na '-at' w
+      pliku <b><tt>slowa.lst</tt></b>. (685)
+	
+      <li> Znaleźć najczęściej występującą czteroliterową końcówkę
+	wśród słów w pliku <b><tt>slowa.lst</tt></b>. Wynikiem ma być
+	wyłącznie ta końcówka. (ście)
+	
+      <li> Znaleźć wszystkie palindromy 2-7 literowe występujące w
+      pliku <b><tt>slowa.lst</tt></b>. (90)
+	
+      <li> Obliczyć częstość występowania wszystkich sekwencji
+	3-wyrazowych w pliku <b><tt>korpus.txt</tt></b> (Uwzględnić
+	tylko sekwencje występujące w obrębie pojedynczych linii.)
+	
+      <li> Wydrukować wszystkie linie pliku, w których wystepują
+      powtórzenie słów (dwa takie same słowa po sobie). (19 linii)
+	
+      <li> Przetworzyć wynik polecenia '<code>ls -l</code>' tak, by wydrukowana zostala
+	informacja tylko o nazwach i rozmiarach plików. /
+	
+      <li> Przetworzyć wynik polecenia '<code>who</code>' w taki sposób, by otrzymać informację 
+	o tym, jacy użytkownicy są zalogowani i na ilu sesjach, np.: 
+	
+	<pre>
+	  we/in:
+	  
+	  root     tty1         Oct 11 20:21         
+	  to       tty2         Oct 11 20:21         
+	  to       tty3         Oct 11 20:17         
+	  
+	  wy/out:
+	  
+	  root 1
+	  to 2
+	</pre>
+	
+      <li> Przetworzyć wynik polecenia '<code>who</code>' tak, by wydrukowana została
+	tylko liczba użytkowników aktualnie zalogowanych w systemie.
+	
+      <li> Przetworzyć wynik polecenia '<code>ls -l</code>' tak, by wydrukowana zostala
+	liczba podkatalogów w bieżącym katalogu.
+	
+      <li> Przetworzyć plik <b><tt>korpus.txt</tt></b> na listę
+	frekwencyjną słów (za słowo uznać niepusty ciąg liter
+	ograniczony znakami różnymi od liter).
+	
+      <li> Obliczyć sumę wielkości plików w bieżącym katalogu 
+	przez przetworzenie wyników polecenia 'ls -l'.
+	(do dodawania użyć programu bc lub dc).
+
+      <li> Zakładamy, że na wejściu mamy tekst w formacie: w każdej linii dwa pola
+	oddzielone separatorem ';' (średnik). Napisać program dla edytora <code>sed</code>, 
+	który przeworzy ten tekst w taki sposób, że każda sekwencja kolejnych linii 
+	o takim samym polu 1. zostanie przepisana, jako jedna linia postaci: pole 1. 
+	i po separatorze (';') drugie pola z kolejnych łączonych linii, np.:
+<pre>
+we:
+      ja;3 koty
+      ja;2 psy
+      ty;1 pies
+      on;4 koty
+      on;5 myszy
+      on;8 psów
+
+wy:
+      ja;3 koty;2 psy
+      ty;1 pies
+      on;4 koty;5 myszy;8 psów
+
+</pre>	
+    </ol>
+
+    <h3>Pliki z danymi do zadań</h3>
+    <ul>
+      <li><a href="slowa.lst.html">slowa.lst</a>
+      <li><a href="korpus.txt">korpus.txt</a>
+    </ul>
+
+    <h3>Wskazówki</h3>
+
+    <ol>
+
+      <li> Wszystkie zadania można rozwiązać za pomocą odpowiednich
+	wywołań kilku spośród
+	programów <b><tt>egrep</tt></b>, <b><tt>sed</tt></b>, <b><tt>uniq</tt></b>, <b><tt>sort</tt></b>, <b><tt>wc</tt></b>, <b><tt>head</tt></b>
+	, <b><tt>tail</tt></b>, <b><tt>cut</tt></b>, <b><tt>cat</tt></b>, <b><tt>dc</tt></b>, <b><tt>bc</tt></b>
+	połączonych ze sobą za pomocą potoków
+
+      <li> Przykładowe sposoby rozwiązania zadania 1.
+	<ul>
+	  <li> <pre>cat slowa.lst | egrep 'at$' | wc -l</pre>
+	  <li> <pre>cat slowa.lst | egrep -c 'at\b'</pre>
+	  <li> <pre>egrep 'at\b' slowa.lst | wc -l</pre>
+	  <li> <pre>egrep -c 'at$' slowa.lst</pre>
+	</ul>
+
+      <li> Informacje o szczegółach działania i parametrach programów
+      można uzyskać:
+
+	<ul>
+	  <li>ze stron man, np.
+	    <div><b><tt>man sed</tt></b></div>
+	  <li>ze stron info (nie wszystkie programy), np.
+	    <div><b><tt>info sed</tt></b></div>
+	  <li>wywołując program z parametrem <b><tt>--help</tt></b>
+	    <div><b><tt>sed --help</tt></b></div>
+	</ul>
+	
+      <li> Rozwiązania można testować wprowadzając dane z
+	konsoli. Każdy z programów, jeśli nie poda mu się pliku
+	wejściowego, będzie czytał z konsoli. Wprowadzając tekst z
+	konsoli, kończymy wpisywanie przez Ctrl-D (znak końca pliku).
+
+      <li> W pliku <b><tt>slowa.lst</tt></b> polskie znaki są
+      zakodowane z użyciem kodowania ISO-8859-2 (inaczej
+      Latin2). Jeśli pracujemy w konsoli używającej kodowania UTF-8,
+      trzeba go przekodować. Do tego celu można użyć
+      programu <b><tt>recode</b></tt> bądź <b><tt>iconv</tt></b>. 
+	
+    </ol>
+    
+  </body>
+
+</html>

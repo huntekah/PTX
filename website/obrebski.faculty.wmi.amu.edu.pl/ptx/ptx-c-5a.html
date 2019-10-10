@@ -1,0 +1,50 @@
+<html>
+  <head>
+	<meta charset="utf-8">
+  </head>
+  
+  <body lang=PL>
+
+    <h1 id="cw5">Przetwarzanie tekstu <br> ćwiczenia 5</h1>
+    <h2>temat: Thrax</h2>
+    
+    <h3>Zadania</h3>
+   
+    <ol>
+
+      <li> Przejrzeć przykłady z wykładu.
+
+      <li> Zbudować przetwornik poprawiający błędy ortograficzne.
+
+       <li> Stworzyć przetwornik, który będzie poprawiał błędy polegające na nieprawidłowym użyciu
+	form przyimka z/ze, w/we, np:
+<pre>
+przyjdę we wtorek -> przyjdę we wtorek
+przyjdę w wtorek -> przyjdę we wtorek
+jestem we kurtce -> jestem w kurtce
+mam problem ze zadaniem -> mam problem z zadaniem
+mam problem ze pamięcią -> mam problem z pamięcią
+</pre>
+
+    </ol>
+
+    <h3>Wskazówki</h3>
+
+    <ol>
+      <li> kompilacja pliku .grm
+<pre>
+    $ thraxmakedep NAZWAPLIKU.grm
+    $ make
+</pre>
+      <li> test przetwornika
+<pre>
+
+    $ thraxrewrite-tester --noutput=10 --far=corrector.far --rules=corrector
+    $ thraxrewrite-tester --noutput=10 --input_mode=dict.tsv --output_mode=dict.tsv --far=parser.far --rules=parse
+
+</pre>
+    </ol>
+
+  </body>
+
+</html>

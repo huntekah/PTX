@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-2" />
+  </head>
+  
+  <body lang=PL>
+
+    <h1 id="cw5">Przetwarzanie tekstu <br> ćwiczenia 10-12</h1>
+    <h2>temat: translacja sterowana składnią</h2>
+    
+    <h3>Zadania</h3>
+    
+    <ol>
+      
+      <li> (1 pkt) Tłumaczenie opisu grafu w języku <b>mjog</b> na jezyk <b>dot</b>
+	(mjog = <b>m</b>ój <b>j</b>ęzyk <b>o</b>pisu <b>g</b>rafu).
+	
+	<h5>zadania szczegółowe:</h5>
+	<ol>
+	  <li> Zaprojektować język <b>mjog</b> służący do opisu grafu, łącznie z kilkoma
+	    parametrami dotyczącymi formatu jego wizualizacji.
+
+	    <ul>
+	      <li> Dla wierzchołka grafu powinno być można (nie trzeba) określić:
+		
+		<ul>
+		  <li> etykietę - dowolny tekst, mogący zawierać znaki
+		    końca linii
+		  <li> kształt ramki - 3 możliwości: prostokątny,
+		    okrągły, brak ramki (czysty tekst)
+		  <li> styl ramki - 3 możliwości: zwykła, pogrubiona, przerywana
+		</ul>
+		
+	      <li>Dla łuku powinno być można (nie trzeba) określić:
+		
+		<ul>
+		  <li> etykietę - dowolny tekst, mogący zawierać znaki końca linii
+		  <li> styl: linia ciągła, przerywana
+		    
+		</ul>
+		
+	      <li>Powinno być możliwe określenie domyślnego kształtu
+		ramki i domylnego stylu ramki, który ma być użyty,
+		jeśli w opisie wierzchołka nie poda się tego
+		parametru. Należy też umożliwić umieszczanie
+		komentarzy w tekście opisu grafu.
+	    </ul>
+
+	  <li> Oto dwa przykłady opisu przykładowego grafu <a href="graf.jpg">[jpg]</a>, <a href="graf.gif">[gif]</a>, <a href="graf.eps">[eps]</a>, wyrażone w dość
+	    "brzydkich" i mało przemyślanych językach (Państwa
+	    propozycje powinny być lepsze):
+
+<pre>
+------------------------------------------------------------
+graph {
+  nodes {
+  defaults { shape {"circle"}; };
+  1: { label {"pierwszy\nwierzchol/ek"}; shape {"box"}; };
+  2: { label {"drugi\nwierzchol/ek"}; };
+  3: { shape {"box"}; style {"dashed"}; };
+  4: ;
+  };
+
+  edges {
+
+  (1,2): { label { "alfa" }; };
+  (1,3): { label { "beta" }; }; /*to jest komentarz*/
+  (2,4): ;
+  (3,4): ;
+  };
+};
+------------------------------------------------------------
+
+</pre>
+
+<pre>
+
+----------------------------------------
+  %BEGINGRAPH
+  %% to jest linia komentarza
+  %DEFAULTNODE CIRCLENODE
+  %BOXNODE 1 'pierwszy\nwierzchol/ek'
+  %EDGE 1->2 alfa
+  %EDGE 1->3 beta
+  %NODE 2 'drugi\nwierzchol/ek'
+  %EDGE 2->4 %DASHEDBOXNODE 3
+  %EDGE 3->4
+  %NODE 4
+  %ENDGRAPH
+-----------------------------------------
+</pre>
+
+	  <li> Używając języka <b>mjog</b>, sporządzć opis
+	    przykładowego
+	    grafu <a href="graf.jpg">[jpg]</a>, <a href="graf.gif">[gif]</a>, <a href="graf.eps">[eps]</a>.
+	    
+	  <li> Sporzdzić kompletną listę jednostek leksykalnych języka <b>mjog</b>.
+
+	  <li> Napisać gramatykę bezkontekstową definiującą składnię
+	    języka <b>mjog</b>. Jednostki leksykalne z punktu poprzedniego
+	    traktować jako quasi-terminale gramatyki.
+
+	  <li> Wykorzystując parę narzędzi flex+bison napisać
+	    analizator składniowy języka <b>mjog</b> - program
+	    sprawdzający, czy tekst podany na wejście jest poprawnym
+	    kodem w języku <b>mjog</b>.
+
+	  <li> Na bazie stworzonego analizatora, zbudować translator,
+	  który na wyjściu będzie generował opis grafu w języku <b>dot</b>.
+
+	</ol>
+	
+	<li> (2 pkty) Translator podzbioru jednego języka
+	  programowania na inny (np. C na Pacal, Ruby na
+	  Python). Uwzględnić co najmniej pięć konstrukcji języka
+	  (np. wyrażenie if, pętla for, deklaracja zmiennej, deklaracja
+	  funkcji, wywołanie funkcji, blok instrukcji, definicja klasy,
+	  wyrażenie arytmetyczne, ...)
+	  
+	<li> (3-4 pkty) Kompilator wymyślonego przez siebie języka
+	  programowania na język maszyny wurtualnej Parrot (uwzględnić
+	  co najmniej pięć konstrukcji języka (wyrażenie if, pętla
+	  for, deklaracja zmiennej, deklaracja funkcji, wywołanie funkcji, blok
+	  instrukcji, definicja klasy, wyrażenie arytmetyczne...)
+	  
+    </ol>
+    
+
+
+    <h3>Wskazówki</h3>
+
+    <ul>
+      
+      <li>Źródła nt. flexa i bisona:
+
+	<ul>
+	  <li> dokumentacja
+	    flex'a: <a href="http://flex.sourceforge.net/manual/">http://flex.sourceforge.net/manual/</a>
+
+	  <li> dokumentacja bison'a: <a href="http://www.gnu.org/software/bison/manual/">http://http://www.gnu.org/software/bison/manual/</a>
+	
+	  <li>Lex and YACC primer/HOWTO: <a href="http://tldp.org/HOWTO/Lex-YACC-HOWTO.html">http://tldp.org/HOWTO/Lex-YACC-HOWTO.html</a>
+	</ul>
+
+      <li> patrz przykłady innych translatorów (kod flex+bison):
+	<ul>
+	  <li> translator wyrażeń regularnych na listę przejść
+	    automatu skończonego w formacie OpenFst (patrz przykłady
+	    do wykładu 'Analiza składniowa')
+	  <li> translator języka <b>zjp</b> (zjp = zabawkowy język
+	    programowania) na asembler maszyny wirtualnej
+	    Parrot. (patrz przykłady do wykładu 'Analiza składniowa')
+	    <a href="http://obrebski.faculty.wmi.amu.edu.pl/ptx/przyklady/zjpc">zjpc.l+zjpc.y</a>
+	</ul>
+
+      <li> język <b>dot</b> - patrz dokumentacja
+      programu <tt>dot</tt>.
+	<pre>
+	  
+	  man dot
+	  
+	</pre>
+	Program <tt>dot</tt> należy do
+	pakietu GraphViz. Program ten przekaształca opis grafu
+	w języku <b>dot</b> na plik graficzny, np. w formacie ps.
+	
+    </ul>
+
+  </body>
+
+</html>
+

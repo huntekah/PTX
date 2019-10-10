@@ -1,0 +1,88 @@
+<html>
+  <head>
+	<meta charset="iso-8859-2">
+  </head>
+  
+  <body lang=PL>
+
+    <h1 id="cw5">Przetwarzanie tekstu <br> ćwiczenia 5</h1>
+    <h2>temat: Automaty skonczone</h2>
+    
+    <h3>Zadania</h3>
+    
+    <ol>
+      
+      <li> Przejrzeć dokumentację
+	pakietu <a href="http://www.openfst.org">OpenFst</a>
+	
+      <li> Przygotować narzędzia pomocnicze (użyć języka skryptowego
+	Perl, Ruby, Python, ...):
+
+	<ul>
+
+	  <li> Napisać program kompilujący listę słów do postaci
+	    automatu skończonego w formacie OpenFst.
+	    
+	  <li> Napisać program drukujący listę ścieżek automatu,
+	    przyjmujący na wejściu automat w formacie tekstowym
+	    OpenFst (wyjście fstprint)
+	    
+	</ul>	
+
+      <li> Utworzyć automat akceptujący język <b><tt>ab*c+</tt></b>
+      Sprawdzić czy automat akceptuje słowa abbcc, aabbcc.
+	
+      <li> Utworzyć 5 automatów akceptujących po jednym słowie
+	każdy, np. Ania, Ala, Aga, Zosia, Zdzisia.
+	Z tych automatow utworzyć jeden minimalny automat
+	deterministyczny akceptujący wszystkie słowa.
+	
+      <li> Utworzyć automat ze słownika slowa.lst.  Stworzyć listę wszystkich
+	słów ze słownika slowa.lst (slowa-abc.lst) rozpoczynajacych
+	się od 'anty' wykorzystując wyłącznie operacje na automatach).
+	
+      <li> Utworzyć przetwornik, który będzie można użyć do zamiany
+	odmienionej formy wyrazowej na jej formę podstawową, czyli
+	przeksztalcajacy np. slowo 'kotach' w 'kot', 'drodze' w
+	'droga' itd. Uwzglednić co najmniej 5 rzeczowników. Sprawdzić
+	działanie przetwornika. (Przetwornik można utworzyć ręcznie
+	lub rozwinąć narzędzie do tworzenia automatu z listy słów tak,
+	by tworzyło również przetworniki z listy ciągów par symboli.)
+    </ol>
+
+    <h3>Wskazówki</h3>
+
+    <ul>
+
+      <li> Wykorzystać zestaw programów wykonywalnych z pakietu OpenFst.
+
+      <li> Aby sprawdzić, czy automat A akceptuje słowo W:
+	<ol>
+	  <li> utworzyć ze słowa W jednościeżkowy automat B (akceptujący tylko to słowo)
+	  <li> obliczyć przecięcie (intersection) automatów A i B
+	  <li> jeśli wynikiem przecięcia jest jednościeżkowy automat
+	    równoważny automatowi B, oznacza to że automat A akceptuje
+	    słowo W
+	</ol>
+
+      <li> To, czy automat jest pusty, można sprawdzić drukując jego
+	ścieżki z wykorzystaniem programu z zad. 1, bądź za pomocą
+	programu fstinfo.
+	
+      <li> Aby z dowolnego automatu utworzyć minimalny automat
+	deterministyczny, trzeba wykonać po kolei trzy operacje: 
+	
+	<ol>
+	  <li> usunięcie przejść epsilonowych (<tt>fstrmepsilon</tt>)
+	  <li> determinizacja (<tt>fstdeterminize</tt>)
+	  <li> minimalizacja (<tt>fstminimize</tt>)
+	</ol>
+	
+    </ul>
+
+	Narzedzia pomocnicze dla tych, ktorzy z jakichs powodow ich nie zrobili:
+<a href="rzeczy.html">sa tu</a>,
+
+  </body>
+
+</html>

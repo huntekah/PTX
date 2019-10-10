@@ -1,0 +1,147 @@
+<html>
+  <head>
+	<meta charset="ISO-8859-2"/>
+  </head>
+  
+  <body lang=PL>
+
+    <h1 id="cw5">Przetwarzanie tekstu <br> ćwiczenia 7</h1>
+    <h2>temat: flex</h2>
+    
+    <h3>Zadania</h3>
+    
+    <ol>
+      
+      <li> Zbudować analizator leksykalny dla podzbioru języka C++.
+	Program otrzymuje na wejściu kod w C++, na wyjście wypisuje
+	informacje o kolejnych napotkanych jednostkach leksykalnych w
+	formacie - patrz przykład poniżej.
+
+	Uwzględnić należy następujące typy jednostek leksykalnych:
+	<ul>
+	  <li> słowa kluczowe (min. 10)
+	  <li> identyfikatory
+	  <li> nawiasy klamrowe, kwadratowe, zwykłe
+	  <li> operatory (min. 10)
+	  <li> średnik
+	  <li> literały całkowite (12, -123), rzeczywiste (0.5, 10.5, .5, 1.2e-10), znakowe ('a', 'b'), 
+	    łańcuchowe ("jakiś napis", "trudniejszy \"napis\""),
+	</ul>
+	
+      <li> Komentarze powinny być ignorowane.
+
+      <li> Kolejno występujące literały łańcuchowe oddzielone od
+	siebie jedynie białymi znakami powinny być łączone w jeden
+	tak, jak to jest w C/C++.
+
+      <li> Następujące typy błędów powinny być wykrywane i sygnalizowane:
+	<ul>
+	  <li> nieoczekiwany znak
+	  <li> niezakończony komentarz
+	  <li> niezakończona stała łańcuchowa
+	</ul>
+
+      <li> W komunikacie o błędzie powinien być podany nr linii, w której
+	on wystąpił.
+	
+	<h5>Przykład:</h5>
+	
+	<table>
+	  <tr><th>wejście:</th>
+	  <tr><td></td><td>
+	      <pre>
+                /*
+                 * Przykładowy program
+                 */
+
+                void main()	// komentarz
+                {
+                  for(int i=1; i<=10; i++)
+                	printf("Hello world..."
+                		"czyli Witaj świecie\n");
+                }
+
+                /* komentarz,
+                 * który nie jest
+                 * zakończony
+	      </pre>
+	    </td>
+	  <tr><th>wyjście:</th>
+	  <tr><td></td><td>
+	      <pre>
+		SK_VOID		void
+		ID		main
+		NAW_OTW		(
+		NAW_ZAM		)
+		KLAM_OTW	{
+		SK_FOR		for
+		NAW_OTW		(
+		SK_INT		int
+		ID		i
+		OP_PRZYP	=
+		STALA_INT	1
+		SRED		;
+		ID		i
+		OP_LEQ		&lt;=
+		STALA_INT	10
+		SRED		;
+		ID		i
+		OP_INC		++
+		NAW_ZAM		)
+		ID		printf
+		NAW_OTW		(
+		STALA_LANC	"Hello world...czyli Witaj świecie\n"
+		NAW_ZAM		)
+		SRED		;
+		KLAM_ZAM	}
+		
+		BLAD! niezakonczony komentarz w linii 12
+	      </pre>
+	    </td>
+	</table>
+
+    </ol>
+
+    <h3>Wskazówki</h3>
+
+    <ul>
+
+      <li> Należy użyć generatora analizatorów leksykalnych <b><tt>flex</tt></b>
+
+      <li> Specyfikację analizatora przygotowujemy w języku <tt>flex</tt> w pliku o rozszerzeniu <b><tt>.l</tt></b> , np. <tt>analizator.l</tt>
+	
+      <li> Kompilacja specyfikacji:
+	<ol>
+	  <li> kompilujemy plik <tt>analizator.l</tt> za pomocą programu <b><tt>flex</tt></b>
+	    
+	    <pre>
+
+	      flex analizator.l
+
+	    </pre>
+	    
+	  <li> wynikiem kompilacji jest plik lex.yy.c zawierający
+	    definicję funkcji yylex() w języku C
+	    
+	  <li> kompilujemy plik lex.yy.c na program wykonywalny,
+	    dostarczając funkcje main() i yywrap() (patrz wykład) z
+	    biblioteki flexa (opcja -lfl)
+
+	    <pre>
+
+	      gcc lex.yy.c -lfl
+
+	    </pre>
+
+	</ol>
+
+      <li> dokumentacja flex'a: <a href="ftp://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_mono/flex.html">tu</a>
+	
+
+	
+    </ul>
+
+  </body>
+
+</html>
+

@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=iso-8859-2">
+  </head>
+  
+  <body lang=PL>
+
+    <h1 id="cw5">Przetwarzanie tekstu <br> ćwiczenia 7</h1>
+    <h2>temat: flex</h2>
+    
+    <h3>Zadania</h3>
+    
+    <ol>
+      
+      <li> Napisać gramatykę bezkontekstową dla języka {a,ab,abb,ac}.
+
+      <li> Napisać gramatykę dla języka ciągów zer i jedynek dowolnej
+	długości (również pustych), np. (cztery przykłady)
+	<pre>
+
+	  0
+
+          10011011
+	  10011001010010101
+
+	</pre>
+      <li> Napisać gramatykę dla niepustych ciągów zer i jedynek
+	oddzielonych przecinkami, ujętych w nawiasy okrągłe, np. 
+	<pre>
+
+	  (0)
+	  (1,0,0,1,1)
+
+	  </pre>
+	Podać wywód prawostronny i drzewo wywodu dla (1,0,1).
+
+      <li> Napisać gramatykę dla wyrażeń zbudowanych z dowolnej liczby
+	zagnieżdżonych nawiasów:
+	
+	<pre>
+
+	  ()
+	  (())
+	  ((()))
+	  (((())))
+	  ....
+
+	</pre>
+
+      <li> Napisać gramatykę dla języka zrównoważonych nawiasów,
+	np. 
+	
+	<pre>
+
+	  ()
+	  ()()
+	  (()())()
+	  (((()(()))))
+
+	</pre>
+
+      <li> Napisać gramatykę dla sekcji deklaracji zmiennych w
+	pascalu. Uwzględnić tylko typy proste.  Przyjąć, że id jest
+	quasi-terminalem. Narysować drzewo rozbioru dla
+
+	<pre>
+	  
+	  var i,j:integer;
+	  x:real
+	  
+	</pre>
+
+      <li> Wykorzystujac narzedzia bison i flex, zbudowac akceptory
+	dla jezyka z zad 3. (akceptor = program sprawdzajacy, czy
+	napis podany na wejsciu jest zgodny z gramatyka)
+
+    </ol>
+
+    <h3>Wskazówki</h3>
+
+    <ul>
+
+      <li>Źródła:
+
+	<ul>
+	  <li> dokumentacja
+	    flex'a: <a href="http://flex.sourceforge.net/manual/">http://flex.sourceforge.net/manual/</a>
+
+	  <li> dokumentacja bison'a: <a href="http://www.gnu.org/software/bison/manual/">http://http://www.gnu.org/software/bison/manual/</a>
+	
+	  <li>Lex and YACC primer/HOWTO: <a href="http://tldp.org/HOWTO/Lex-YACC-HOWTO.html">http://tldp.org/HOWTO/Lex-YACC-HOWTO.html</a>
+	</ul>
+    </ul>
+
+  </body>
+
+</html>
+

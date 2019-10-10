@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=iso-8859-2">
+  </head>
+  
+  <body lang=PL>
+    
+    <h1 id="cw1">Przetwarzanie tekstu <br> ćwiczenia 1</h1>
+    <h2>temat: wyrażenia regularne</h2>
+    
+    <h3>Zadania</h3>
+    
+    <ol type="1">
+      <li> Napisać wyrażenia regularne opisujące:
+	<ol type="a">
+	  <li> język {<b><tt>a</tt></b>}
+	  <li> język {<b><tt>ab</tt></b>}
+	  <li> język {<b><tt>a</tt></b>,<b><tt>b</tt></b>}
+	  <li> język {<b><tt>aa</tt></b>,<b><tt>ab</tt></b>,<b><tt>ac</tt></b>,<b><tt>ad</tt></b>,<b><tt>ae</tt></b>,<b><tt>af</tt></b>,<b><tt>ag</tt></b>,<b><tt>ah</tt></b>,<b><tt>ai</tt></b>,<b><tt>aj</tt></b>,<b><tt>ak</tt></b>}
+	  <li> słowa o długości 3 złożone z liter <b><tt>a</tt></b>,<b><tt>b</tt></b>,<b><tt>c</tt></b>
+	  <li> słowa o dł. 5, złożone z liter <b><tt>a</tt></b>,<b><tt>b</tt></b>,<b><tt>c</tt></b>, zaczynające się i kończące na <b><tt>a</tt></b>.
+	  <li> liczby naturalne parzyste
+	  <li> liczby całkowite (ze znakiem lub bez)
+	  <li> kody pocztowe
+	  <li> ciąg imion z nazwiskiem (uwzglednić możliwość stosowania inicjałów
+	    zamiast pełnych imion), np. <b><tt>Jan Kowalski</tt></b>, <b><tt>Anna Maria Kowalska</tt></b>, 
+	    <b><tt>J. Kowalski</tt></b>, <b><tt>A. M. Kowalska</tt></b>
+	  <li> poprawne identyfikatory (nazwy) języka C
+	  <li> linie tekstu rozpoczynajace i kończące się znakiem <b><tt>a</tt></b> i nie zawierające odstepów
+	  <li> linie tekstu rozpoczynające się znakiem <b><tt>#</tt></b>, być może poprzedzonym białymi znakami
+	  <li> wszystkie formy fleksyjne wyrazu <i>napis</i> (<b><tt>napis</tt></b>, <b><tt>napisu</tt></b>, <b><tt>napisowi</tt></b>, ...)
+	  <li> ciąg liczb całkowitych oddzielonych przecinkami, z możliwością wystapienia dowolnej liczby
+	    znaków odstępu na początku i końcu napisu oraz wokół przecinków, np.
+	    <p> <b><tt>1,  15  , 33 ,2090</tt></b>
+	  <li> wyrażenia arytmetyczne składające się z liczb naturalnych i operatorow <b><tt>+</tt></b> i <b><tt>-</tt></b>, np.
+	    <p> <b><tt>1 + 23 - 7</tt></b>
+	  <li> palindromy o dlugosci do 7 znakow, np.
+	    <ul type="nu">
+	      <li><b><tt>a</tt></b>
+	      <li><b><tt>oo</tt></b>
+	      <li><b><tt>oko</tt></b>
+	      <li><b><tt>inni</tt></b>
+	      <li><b><tt>zaraz</tt></b>
+	      <li><b><tt>mełłem</tt></b>
+	      <li><b><tt>anilina</tt></b>
+	    </ul>
+	  <li> napisy zbudowane z zagnieżdżonych, zbalansowanych nawiasów, np.
+	    <p><b><tt>()</tt></b>
+	    <p><b><tt>()()()</tt></b>
+	    <p><b><tt>((()))</tt></b>
+	    <p><b><tt>(()((())))</tt></b>
+	  <li> literały rzeczywiste języka C (np. <b><tt>0.5</tt></b>, <b><tt>-3.456e-10</tt></b>)
+	  <li> linie wyjścia polecenia 'ls -l'
+	  <li> wyrazy dokładnie/co najmniej/co najwyżej sześcioliterowe kończące się na -ący, -ąca, -ące
+	  <li> linie dłuższe/krótsze niż 40 znaków (używając egrepa i pliku korpus.txt z Ćw. nr 2)
+	  <li> linie zawierające dwa razy ten sam wyraz (sprawdzić używając egrepa i pliku korpus.txt z Ćw. nr 2)
+	</ol>
+      <li>Przetestować rozwiązania z użyciem programów <b><tt>egrep</tt></b> i <b><tt>sed</tt></b>
+    </ol>
+    
+    
+    
+
+    
+    <h3>Wskazówki</h3>
+<ol>
+  
+  <li>Uwaga: wśród powyższych zadań jest jedno niemożliwe do
+  rozwiązania.
+    
+  <li>Testowanie rozwiązań z użyciem programu <b><tt>egrep</tt></b>
+
+    <ul>
+
+      <li> wywołanie <div><b><tt>egrep
+	'^</tt></b><i>mojewyrażenie</i><b><tt>$'</tt></b></div>
+	przepisuje na wyjście tylko te linie pliku wejściowego, które
+	zawierają napis pasujący do wzorca (wyrażenia
+	regulernego) <i>mojewyrażenie</i>
+
+    </ul>      
+    
+  <li> Testowanie rozwiązań z użyciem programu <b><tt>sed</tt></b>
+
+    <ul>
+
+      <li> wywołanie
+
+	<div><b><tt>sed -r 's/(</tt></b><i>mojewyrażenie</i><b><tt>)/<<\1>>/g'</tt></b></div>
+	przepisuje na wyjście tekst wejściowy, zaznaczając za pomocą
+	podwójnych nawiasów kątowych wszystkie wystąpienia napisów
+	pasujących do wzorca <i>mojewyrażenie</i>
+
+      <li> przykład
+	
+	<pre>
+    komenda:
+	  
+    $ sed -r 's/([0-9]{2}-[0-9]{3})/<<\1>>/g'
+	    
+    wpisujemy:
+    
+    aaa 23-9, 666, 00-950 i 01-234!!!
+
+    program wypisuje:
+
+    aaa 23-9, 666, <<00-950>> i <<01-234>>!!!
+		
+	</pre>
+    </ul>
+	
+	
+  <li> Do eksperymentowania z wyrażeniami regularnymi można też użyć programów np. <b><tt>visual-regexp</tt></b> <b><tt>debuggex</b></tt> <b><tt>Rubular</tt></b> (patrz. stona PTX).
+</ol>
+
