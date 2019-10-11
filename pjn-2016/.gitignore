@@ -1,0 +1,13 @@
+*.class
+summary.txt
+*~
+*.out
+*.far
+*.res
+report.txt
+TaskX02/run
+*.jar
+*.o
+*.pyc
+\#*
+result.csv

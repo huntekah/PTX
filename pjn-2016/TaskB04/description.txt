@@ -1,0 +1,6 @@
+Napisz program do kodowania liter tekstu. Kodowanie powinno odbywać się według następującej zasady - każdej napotkanej literze przypisywana jest liczba naturalna (zaczynając od 1) i od tej pory wszystkie wystąpienia tej litery są kodowane tą liczbą i następującym po niej znakiem "|". Zakłada się, że tekst składa się wyłącznie z małych liter alfabetu ASCII i nie zawiera znaków interpunkcyjnych. Spacje nie powinny być kodowane.
+
+Zadanie należy rozwiązać w języku Python (2 bądź 3).
+
+POINTS: 20
+DEADLINE: 2016-10-23 23:59

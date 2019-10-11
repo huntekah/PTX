@@ -1,0 +1,10 @@
+Napisz program, który zlicza liczbę wystąpień liter w tekście podanym
+na standardowym wejściu i wypisuje je w postaci par 'litera' 'liczba
+wystąpień' oddzielone znakiem tabulacji. Należy zliczyć duże litery
+A-Z oraz małe litery a-z z alfabetu ASCII. Wyjście powinno być
+posortowane wg. liter w kolejności alfabetycznej.
+
+Zadanie należy rozwiązać w języku Python (2 bądź 3).
+
+POINTS: 10
+DEADLINE: 2016-10-23 23:59

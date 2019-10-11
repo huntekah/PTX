@@ -1,0 +1,4 @@
+Napisz program który wygeneruje tablicę sufiksową z podanego tekstu. Na wejściu znajduje się jedna linia (należy usunąć z niej końcowy znak nowej linii). Na wyjściu powinny znaleźć się kolejne elementy tablicy sufiksowej.
+
+POINTS: 20
+DEADLINE: 2016-10-30 23:59

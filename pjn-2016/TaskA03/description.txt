@@ -1,0 +1,4 @@
+Wypisać 123 linię wejścia.
+
+POINTS: 5
+DEADLINE: 2016-10-17 23:59

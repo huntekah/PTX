@@ -1,0 +1,4 @@
+Wypisać linie od 10 do 20 włącznie (razem 11 linii).
+
+POINTS: 5
+DEADLINE: 2016-10-17 23:59

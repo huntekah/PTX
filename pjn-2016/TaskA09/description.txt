@@ -1,0 +1,4 @@
+Napisać program, który wypisze listę wszystkich znaków uzytych na wejściu wraz z liczbą wystąpień każdego znaku. Lista powinna być posortowana malejąco po liczbie wystąpień znaku. Każda linia wyjścia powinna składać się z: 2 znaków tabulacji, liczby wystąpień znaku, spacji oraz samego znaku.
+
+POINTS: 10
+DEADLINE: 2016-10-17 23:59

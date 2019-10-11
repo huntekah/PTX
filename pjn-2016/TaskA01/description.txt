@@ -1,0 +1,4 @@
+Napisać program, który wypisze podane liczby posortowane malejąco i bez powtórzeń.
+
+POINTS: 5
+DEADLINE: 2016-10-17 23:59

@@ -1,0 +1,3 @@
+Napisać program, który policzy liczbę słów w tekście (ale nie policzy interpunkcji).
+POINTS: 5
+DEADLINE: 2016-10-17 23:59

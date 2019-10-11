@@ -1,0 +1,5 @@
+Napisać program, który dla każdego pobranego ze standardowego
+wejścia wiersza wypisuje go odwróconego na standardowym wyjściu
+
+POINTS: 10
+DEADLINE: 2016-10-12 23:59

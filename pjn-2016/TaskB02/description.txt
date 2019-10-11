@@ -1,0 +1,6 @@
+Napisz program do generowania wszystkich trigramów słów z podanego na standardowym wejściu tekstu. Trigramem nazywamy ciąg 3 występujących po sobie słów. Program powinien wypisywać jeden trigram w jendej linii wyjścia.
+
+Zadanie należy rozwiązać w języku Python (2 bądź 3).
+
+POINTS: 10
+DEADLINE: 2016-10-23 23:59

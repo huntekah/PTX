@@ -1,0 +1,4 @@
+Napisać program, który zamieni wszystkie polskie znaki (małe i wielkie) na "X".
+
+POINTS: 5
+DEADLINE: 2016-10-17 23:59

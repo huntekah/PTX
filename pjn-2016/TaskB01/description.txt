@@ -1,0 +1,6 @@
+Napisz program który zlicza liczbę wystąpień słów w tekście (słowem nazywamy ciąg znaków oddzielony spacjami). Program powinien czytać dowolny tekst ze standardowego wejścia i wypisywać na standardowym wyjściu listę składającą się z par 'liczba wystąpień' i 'słowo' oddzielone znakiem tabulacji. Lista wynikowa powinna być posortowana po liczbie wystąpień i zawierać pierwsze 10 najczęstszych słów.
+
+Zadanie należy rozwiązać w języku Python (2 bądź 3).
+
+POINTS: 10
+DEADLINE: 2016-10-23 23:59

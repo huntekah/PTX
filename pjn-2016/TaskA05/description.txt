@@ -1,0 +1,4 @@
+Napisać program, który policzy sumaryczną ilość dwuznaków "cz" i "sz" na wejściu.
+
+POINTS: 5
+DEADLINE: 2016-10-17 23:59

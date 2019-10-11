@@ -1,0 +1,4 @@
+Napisz program który znajdzie wszystkie lata wzmiankowane w tekście, a następnie wypisze listę piętnastu najczęściej wzmiankowanych lat.
+
+POINTS: 10
+DEADLINE: 2016-10-30 23:59

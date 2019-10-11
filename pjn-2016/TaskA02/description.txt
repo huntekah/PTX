@@ -1,0 +1,4 @@
+W kolejnych wierszach dane są informacje na temat samochodów (marka, model, prędkość maksymalna). Napisać program, który wypisze prędkość najszybszego samochodu.
+
+POINTS: 5
+DEADLINE: 2016-10-17 23:59
