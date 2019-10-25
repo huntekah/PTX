@@ -1,0 +1,4 @@
+└─ $ ▶ ruby -pe '$_.gsub! "a", "b"'
+ruby -ne 'puts "x"'
+
+
