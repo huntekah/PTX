@@ -1,0 +1,46 @@
+ruby preprocessor.rb --author
+
+echo "Szanowny Panie doktorze, program preprocessor.rb został wyposażony w prostą instrukcję obsługi: "
+
+ruby preprocessor.rb -h
+read -p "Press any key to continue"
+clear
+
+echo "Na przykładowym pliku 'test3.c' widać działanie dyrektywy #define w z argumentem oraz bez:"
+echo "plik oryginalny:"
+cat test3.c
+echo -e "-------------------------------------------------------------------
+\npo preprocessingu:\n"
+ruby preprocessor.rb test3.c
+
+read -p "Press any key to continue"
+clear
+
+echo "Można również używać dyrektywy #include (zagnieżdżonej) oraz wielu argumentów w makrodefinicji define:"
+echo "Zobaczmy najpierw pliki test1.c, test2.c oraz test3.c:"
+
+for f in test{1..3}.c ; do
+    echo "plik "$f
+    cat $f
+    echo "-------------------------------------------------------------------"
+done
+
+echo "A poniżej możemy zobaczyć efekt wynikowy programu"
+ruby preprocessor.rb test1.c
+
+
+read -p "Press any key to continue"
+clear
+echo "Ponieważ prawdziwy preprocessor C jest rekursywny, poprawne działanie programu zapewnione jest gdy dodamy przełącznik -r"
+echo "Proszę zwrócić uwagę na zmianę w dwóch linijkach:
+111 = BBB if ABS(42) else relu(1)
+oraz
+111B"
+
+echo "Ponieważ preprocsor zachowuje się poprawnie i zamienia makrodefinicje, dopóki takie znajdzie w konkretnej lniijce(rekurencyjnie, więcej niż raz)"
+
+ruby preprocessor.rb test1.c -r
+read -p "Dziękuję za poświęcony czas, dowidzenia."
+ruby preprocessor.rb -a
+
+echo
