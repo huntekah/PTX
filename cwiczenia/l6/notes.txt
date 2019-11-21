@@ -1,0 +1,4 @@
+fstcompile --acceptor --isymbols=alfabet a.aut > a.bin
+
+sprawdzic czy automat akceptuje słowo:
+utowrzyc jednosciezkowy automat i obliczyc przecięcie automatów.
