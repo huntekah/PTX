@@ -1,0 +1,11 @@
+export letter = Optimize["a" | "b" | "c" | "e" | "r" | "u" | "Ăł" | "z" | "Ĺź" | "y"] ;
+
+export copy   = Optimize[letter*] ;
+
+export err    = (("u":"Ăł") | ("Ăł":"u") | ("Ĺź" : "rz") | ("rz" : "Ĺź"))<1> ;
+
+export dict = "rura" | "rĂłĹźa" | "rury" | "rĂłĹźy" | "rurze" | "rĂłĹźe";
+
+export errormaker = dict @ ((letter|err)+) ;
+
+export corrector  = Optimize[Invert[errormaker]];
