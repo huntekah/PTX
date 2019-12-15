@@ -1,4 +1,5 @@
 import 'byte.grm' as bytelib;
+import 'numbers.grm' as numlib;
 
 all_words = bytelib.kNotSpace+;
 #meaningful = "test1" | "test" | "test2";
@@ -7,23 +8,31 @@ all_words = bytelib.kNotSpace+;
 
 # s = SymbolTable['dict.tsv'];
 eps = "";
-dir = "w" ( "prawo" (eps: "RIGHT") | "lewo" (eps: "LEFT"));
+reduce_spaces = bytelib.kSpace+ : " ";
+any_space = bytelib.kSpace*;
+number = numlib.NUMBERS;
+export dir = "w" any_space( "prawo" (eps: " " "RIGHT") | "lewo" (eps: " " "LEFT"));
 
 go_v = "idz" | "isc" | "poszedl" | "szedl" ;
-turn_v = "skrec" | "skrecic" | "skrecil ;
+turn_v = "skrec" | "skrecic" | "skrecil" ;
 dir_v = "w" | "prawo" | "lewo" ;
 
-meaningful = go_v | turn_v | dir_v;
+accept_number = "1" | "2" |"3" |"4" |"5" |"6" | "7" | "8" | "9" | "0"; 
+meaningful = go_v | turn_v | dir_v | accept_number;
 extra = all_words - meaningful;
 
 out = "GO" | "TURN" | "RIGHT" | "LEFT" | "STOP";
 
-r1 = go_v (eps : "GO".s) ; 
-r2 = (turn_v | go_v)? dir (turn_v | go_v)? (eps: "TURN");
+export r1 = go_v (eps : "GO") ; 
+export r2 = (turn_v | go_v)? any_space dir any_space (turn_v | go_v)? (eps: " " "TURN");
+del_space = any_space : eps;
 
-
-export clean = (meaningful | (extra : eps))*;
-export extract = ((meaningful : eps) | out)*;
-export mainparse = (r1|r2);
-esport parse = clean @ mainparse @ extract ;
-
+clean1 = meaningful | (extra : eps);
+export clean = del_space
+        clean1
+        (reduce_spaces clean1)*
+        del_space;
+export extract = (number? any_space ((meaningful : eps) | out | reduce_spaces))*;
+export mainparse = (((r1|r2) <1.5>) | number | reduce_spaces)*;
+export parse = clean @ mainparse @ extract ;
+ 
