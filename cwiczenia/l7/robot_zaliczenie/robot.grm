@@ -1,0 +1,9 @@
+import 'byte.grm' as bytelib
+
+all_words = bytelib.kNotSpace+;
+meaningful = "test1" | "test" | "test2"
+extra = all_words - meaningful
+# s = SymbolTable['dict.tsv'];
+eps="";
+
+export robot = (meaningful | (extra : eps))*;
