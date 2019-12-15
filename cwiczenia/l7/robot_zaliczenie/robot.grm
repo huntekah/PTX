@@ -1,9 +1,29 @@
-import 'byte.grm' as bytelib
+import 'byte.grm' as bytelib;
 
 all_words = bytelib.kNotSpace+;
-meaningful = "test1" | "test" | "test2"
-extra = all_words - meaningful
-# s = SymbolTable['dict.tsv'];
-eps="";
+#meaningful = "test1" | "test" | "test2";
 
-export robot = (meaningful | (extra : eps))*;
+# del_extra = extra* : "";
+
+# s = SymbolTable['dict.tsv'];
+eps = "";
+dir = "w" ( "prawo" (eps: "RIGHT") | "lewo" (eps: "LEFT"));
+
+go_v = "idz" | "isc" | "poszedl" | "szedl" ;
+turn_v = "skrec" | "skrecic" | "skrecil ;
+dir_v = "w" | "prawo" | "lewo" ;
+
+meaningful = go_v | turn_v | dir_v;
+extra = all_words - meaningful;
+
+out = "GO" | "TURN" | "RIGHT" | "LEFT" | "STOP";
+
+r1 = go_v (eps : "GO".s) ; 
+r2 = (turn_v | go_v)? dir (turn_v | go_v)? (eps: "TURN");
+
+
+export clean = (meaningful | (extra : eps))*;
+export extract = ((meaningful : eps) | out)*;
+export mainparse = (r1|r2);
+esport parse = clean @ mainparse @ extract ;
+
