@@ -1,0 +1,1 @@
+export polimorf = Optimize[StringFile['./dicts/polimorf.txt']];
