@@ -1,0 +1,13 @@
+import 'letters.grm' as letters;
+
+export ortho    = (("om":"ą") | ("ą":"om") | ("h":"ch") | ("ch":"h") | ("u":"ó") | ("ó":"u") | ("ż":"rz") | ("rz":"ż"))<0.9> ;
+export diacrytic = (("ć":"c") | ("c":"ć") | ("ż":"z") | ("z":"ż") | ("ź":"z") | ("z":"ź") | ("ó":"o") | ("o":"ó") | ("l":"ł") | ("ł":"l") | ("e":"ę") | ("ę":"e") | ("a":"ą") | ("ą":"a"))<0.5> ;
+export remove_letter = (letters.pl : "")<1>;
+export insert_letter = ("" : letters.pl)<1>;
+export swap_letter = ( (letters.upper : letters.upper) | (letters.lower: letters.lower)) <1.9>;
+
+export swap_case = (letters.to_upper | letters.to_lower) <0.1> ;
+
+export error = Optimize[(ortho | remove_letter | insert_letter | swap_letter | diacrytic | swap_case)];
+
+

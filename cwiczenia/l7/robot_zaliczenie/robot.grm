@@ -1,9 +1,8 @@
 import 'letters.grm' as letters;
 import 'dict.grm' as dict;
+import 'errors.grm' as errors;
 
-export err    = (("ć":"c") | ("c":"ć") | ("ż":"z") | ("z":"ż") | ("ź":"z") | ("z":"ź") | ("ó":"o") | ("o":"ó") | ("l":"ł") | ("ł":"l") | ("e":"ę") | ("ę":"e") | ("om":"ą") | ("ą":"om") | ("a":"ą") | ("ą":"a") | ("h":"ch") | ("ch":"h") | ("u":"ó") | ("ó":"u") | ("ż":"rz") | ("rz":"ż"))<1> ;
 
-
-export errormaker = dict.polimorf @ ((letters.pl|err)+) ;
+export errormaker = dict.polimorf @ ((letters.pl|errors.error)+) ;
 
 export corrector  = Optimize[Invert[errormaker]];
