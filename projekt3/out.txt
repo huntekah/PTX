@@ -1,0 +1,65 @@
+.sub main
+.local pmc stos
+    stos = new 'ResizableFloatArray'
+.local num tmp
+.local num tmp2
+.local num tmp3
+.local num x
+.local num zm
+push stos,7.0
+push stos,3.0
+push stos,21.0
+pop tmp2,stos
+pop tmp3,stos
+ tmp=tmp2*tmp3
+ push stos,tmp
+pop tmp2,stos
+pop tmp3,stos
+ tmp=tmp2+tmp3
+ push stos,tmp
+pop tmp,stos
+zm = tmp
+push stos,zm
+pop tmp,stos
+say tmp
+push stos,zm
+pop tmp,stos
+.local num ABC
+ ABC = tmp
+push stos,ABC
+pop tmp,stos
+say tmp
+# FOR #
+push stos,zm
+pop tmp,stos
+.local num i
+i = tmp
+BEGINLOOPi:
+push stos,79.0
+pop tmp,stos
+if i > tmp goto ENDLOOPi
+push stos,i
+pop tmp,stos
+say tmp
+push stos,i
+push stos,75.0
+pop tmp1,stos
+pop tmp,stos
+if tmp > tmp1 goto ROB_GDYBA
+goto NIEROB_GDYBA
+ROB_GDYBA:
+push stos,2.0
+push stos,2.0
+pop tmp2,stos
+pop tmp3,stos
+ tmp=tmp2+tmp3
+ push stos,tmp
+pop tmp,stos
+say tmp
+goto NIC_JUZ_NIE_ROB
+NIEROB_GDYBA:
+NIC_JUZ_NIE_ROB:
+inc i
+goto BEGINLOOPi
+ENDLOOPi:
+.end

@@ -1,0 +1,15 @@
+obczaj x
+obczaj zm
+zm = 7 + 3 * 21
+pokaz zm
+zapamietaj ABC = zm
+pokaz ABC
+( i od zm do 79 ) dawaj
+    pokaz i
+    gdyby tak i > 75 wtedy
+        pokaz 2 + 2
+    albo i < 73 wtedy
+        pokaz 3+2
+    co?
+juz
+
